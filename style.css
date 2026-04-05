@@ -1,3 +1,9 @@
+html {
+    scroll-behavior: smooth;
+    /* Sesuaikan angka ini dengan tinggi header kamu (sekitar 80px - 100px) */
+    scroll-padding-top: 95px; 
+}
+
 /* ============================================
    CSS VARIABLES
 ============================================ */
