@@ -87,16 +87,36 @@ nav {
 }
 
 nav a {
+    position: relative; /* Penting untuk pseudo-element */
+    font-family: var(--font-heading);
+    font-size: 15px;
     font-weight: 700;
-    font-size: 14px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--putih);
     padding: 8px 16px;
+    border-radius: 2px;
     transition: color 0.2s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Tempel di bagian bawah link */
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: var(--kuning);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
 }
 
 nav a:hover {
     color: var(--kuning);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
 }
 
 /* ========== HERO ========== */
