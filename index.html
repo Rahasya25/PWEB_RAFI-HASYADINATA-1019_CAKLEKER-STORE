@@ -8,7 +8,7 @@
     <title>Cakleker Store — Sistem Manajemen Inventaris</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,7 +19,7 @@
         <source src="Videos/Ferrari-Reveal-1.mp4" type="video/mp4">
     </video>
 
-    <!-- HEADER -->
+    <!-- HEADER (diperbaiki) -->
     <header>
         <div class="nav-header">
             <img src="Images/CAKLEKER-STORE.png" alt="CAKLEKER STORE" class="logo-img">
@@ -33,31 +33,25 @@
     </header>
 
     <main>
-
-        <!-- SECTION HERO -->
+        <!-- Hero Section (tidak berubah) -->
         <section id="beranda" class="hero">
             <div class="hero-help">
                 <img src="Images/HELP.png" alt="Help Center" class="icon-help">
             </div>
-            
-            <!-- JAM DIGITAL -->
-            <div class="hero-jam" id="heroJam">
+            <div class="hero-jam">
                 <div class="jam-box">
                     <span id="jamDigital">00:00:00</span>
                 </div>
             </div>
-
             <div class="hero-content">
                 <div>
                     <a href="#data-produk" class="btn btn-primary">Halo Admin, ayo atur toko!</a>
                 </div>
-                <div>
-                    <p class="hero-desc">
-                        Cakleker Store adalah toko merchandise Scuderia Ferrari 
-                        terpercaya di Indonesia. Temukan koleksi eksklusif kaos, topi, 
-                        diecast, dan aksesoris untuk para Tifosi sejati.
-                    </p>
-                </div>
+                <p class="hero-desc">
+                    Cakleker Store adalah toko merchandise Scuderia Ferrari 
+                    terpercaya di Indonesia. Temukan koleksi eksklusif kaos, topi, 
+                    diecast, dan aksesoris untuk para Tifosi sejati.
+                </p>
                 <div class="hero-stats">
                     <div>
                         <div class="stat-number">5+</div>
@@ -69,30 +63,30 @@
                     </div>
                 </div>
                 <div class="hero-promo">
-                    🏎️ &nbsp; Gratis ongkir untuk pembelian di atas Rp500.000 &nbsp; • &nbsp; Garansi original merchandise &nbsp; 🏎️
+                    🏎️ Gratis ongkir untuk pembelian di atas Rp500.000 &nbsp;•&nbsp; Garansi original merchandise 🏎️
                 </div>
             </div>
         </section>
 
-        <!-- SECTION PRODUK (CARD GRID) - DINAMIS -->
+        <!-- Produk Cards -->
         <section id="produk" class="section-produk">
             <div class="section-inner">
                 <p class="section-label">Koleksi Kami</p>
                 <h2 class="section-title">Semua Produk</h2>
                 <div class="produk-grid" id="produkGrid">
-                    <!-- Card akan diisi JavaScript -->
+                    <!-- Akan diisi JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- SECTION MANAJEMEN INVENTARIS -->
+        <!-- Manajemen Inventaris -->
         <section id="data-produk" class="section-data">
             <div class="section-inner">
                 <p class="section-label">Sistem Manajemen</p>
                 <h2 class="section-title">Inventaris Barang</h2>
 
-                <!-- STATISTIK CARD -->
-                <div class="stats-container" id="statsContainer">
+                <!-- Statistik -->
+                <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-card-value" id="totalItems">0</div>
                         <div class="stat-card-label">Total Item</div>
@@ -103,11 +97,11 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-card-value" id="lowStockCount">0</div>
-                        <div class="stat-card-label">Stok Menipis (&lt; 5)</div>
+                        <div class="stat-card-label">Stok Menipis (&lt;5)</div>
                     </div>
                 </div>
 
-                <!-- FORM TAMBAH/EDIT BARANG (dengan upload foto) -->
+                <!-- Form -->
                 <div class="form-card">
                     <h3 class="form-title" id="formTitle">Tambah Barang Baru</h3>
                     <form id="inventoryForm">
@@ -152,9 +146,8 @@
                             <div class="form-group">
                                 <label>Foto Produk</label>
                                 <input type="file" id="fotoProduk" accept="image/*">
-                                <small class="error-message" id="errorFoto"></small>
-                                <div id="previewFoto" style="margin-top: 8px;">
-                                    <img id="previewImg" src="" alt="Preview" style="max-width: 80px; max-height: 80px; display: none; border-radius: 4px;">
+                                <div id="previewFoto">
+                                    <img id="previewImg" style="max-width:80px; display:none;">
                                 </div>
                             </div>
                         </div>
@@ -165,7 +158,7 @@
                     </form>
                 </div>
 
-                <!-- FILTER & PENCARIAN -->
+                <!-- Filter & Search -->
                 <div class="filter-bar">
                     <div class="filter-group-inline">
                         <label>Filter Kategori:</label>
@@ -184,46 +177,27 @@
                     </div>
                 </div>
 
-                <!-- TABEL DATA INVENTARIS (dengan kolom foto) -->
+                <!-- Tabel -->
                 <div class="tabel-wrapper">
                     <table class="tabel-produk" id="inventoryTable">
                         <thead>
                             <tr>
-                                <th>Foto</th>
-                                <th>Kode</th>
-                                <th>Nama Produk</th>
-                                <th>Kategori</th>
-                                <th>Stok</th>
-                                <th>Harga</th>
-                                <th>Tanggal Masuk</th>
-                                <th>Aksi</th>
+                                <th>Foto</th><th>Kode</th><th>Nama Produk</th><th>Kategori</th><th>Stok</th><th>Harga</th><th>Tanggal Masuk</th><th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="tableBody">
-                            <!-- Data akan di-render -->
-                        </tbody>
+                        <tbody id="tableBody"></tbody>
                     </table>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (diperbaiki) -->
     <footer id="tentang">
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo-wrap">
-                        <div class="logo">
-                            <div>
-                                <img src="Images/CAKLEKER-STORE.png" alt="CAKLEKER STORE" class="logo-img">
-                            </div>
-                            <div class="logo-sub">
-                                Scuderia Ferrari Merchandise Store #No. 1 di Indonesia
-                            </div>
-                        </div>
-                    </div>
+                    <img src="Images/CAKLEKER-STORE.png" alt="CAKLEKER STORE" class="footer-logo">
                     <p class="footer-desc">
                         Toko merchandise Scuderia Ferrari terpercaya di Indonesia. Kami adalah tifosi sepertimu — bukan sekadar toko, tapi komunitas pecinta balap.
                     </p>
