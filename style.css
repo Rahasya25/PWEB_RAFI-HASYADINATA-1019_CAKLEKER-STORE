@@ -1,4 +1,3 @@
-/* ========== RESET & BASE ========== */
 * {
     margin: 0;
     padding: 0;
@@ -57,7 +56,7 @@ a {
     color: inherit;
 }
 
-/* ========== HEADER (space-between) ========== */
+/* ========== HEADER ========== */
 header {
     position: sticky;
     top: 0;
@@ -87,7 +86,7 @@ nav {
 }
 
 nav a {
-    position: relative; /* Penting untuk pseudo-element */
+    position: relative;
     font-family: var(--font-heading);
     font-size: 15px;
     font-weight: 700;
@@ -102,7 +101,7 @@ nav a {
 nav a::after {
     content: '';
     position: absolute;
-    bottom: 0; /* Tempel di bagian bawah link */
+    bottom: 0; 
     left: 16px;
     right: 16px;
     height: 2px;

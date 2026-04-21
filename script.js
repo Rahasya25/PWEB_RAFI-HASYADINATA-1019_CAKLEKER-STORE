@@ -1,7 +1,3 @@
-// ============================================
-// SISTEM MANAJEMEN INVENTARIS MINI (dengan foto)
-// ============================================
-
 let inventory = [];
 let editingId = null;
 
