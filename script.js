@@ -1,3 +1,7 @@
+// ============================================
+// SISTEM MANAJEMEN INVENTARIS MINI (dengan foto)
+// ============================================
+
 let inventory = [];
 let editingId = null;
 
@@ -184,6 +188,7 @@ const getImageSrc = (item) => {
     if (item.gambar && item.gambar.startsWith('data:image')) {
         return item.gambar;
     }
+    // fallback ke gambar statis berdasarkan nama (untuk produk default)
     const mapping = {
         'Red Race Suit': 'Images/RACE-SUIT-Salin.jpg',
         "Leclerc's Helmet": 'Images/HELM.jpg',
@@ -193,9 +198,7 @@ const getImageSrc = (item) => {
     return mapping[item.nama] || 'https://placehold.co/200x200?text=No+Image';
 };
 
-// ============================================
-// RENDER CARD PRODUK (SEMUA PRODUK)
-// ============================================
+// Render produk cards (SEMUA PRODUK)
 const renderProdukCards = () => {
     const produkGrid = document.getElementById('produkGrid');
     if (!produkGrid) return;
@@ -270,7 +273,7 @@ const renderTable = () => {
         }).join('');
     }
     updateStats();
-    renderProdukCards(); // <-- otomatis update card produk
+    renderProdukCards();
 };
 
 // Simpan barang
@@ -355,7 +358,7 @@ const handleTableActions = (event) => {
 
 const handleFilterAndSearch = () => renderTable();
 
-// Jam digital
+// Jam digital real-time
 const updateJamDigital = () => {
     const now = new Date();
     jamDigitalSpan.textContent = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
