@@ -1,168 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakleker Store — Manajemen Inventaris</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Images/CL-NEW.png">
+    <title>Cakleker Store — Sistem Manajemen Inventaris</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Video Background -->
-<video autoplay muted loop playsinline class="video-bg" id="bgVideo">
-    <source src="Videos/Ferrari-Reveal-1.mp4" type="video/mp4">
-    <!-- Fallback text if video not supported -->
-    Your browser does not support the video tag.
-</video>
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="Videos/Ferrari-Reveal-1.mp4" type="video/mp4">
+    </video>
 
-<header>
-    <div class="nav-header">
-        <img src="Images/CAKLEKER-STORE.png" alt="Logo" class="logo-img" onerror="this.src='https://placehold.co/120x40?text=Cakleker'">
-        <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#produk">Produk</a>
-            <a href="#data-produk">Manajemen</a>
-            <a href="#tentang">Tentang</a>
-        </nav>
-    </div>
-</header>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-header">
+            <img src="Images/CAKLEKER-STORE.png" alt="CAKLEKER STORE" class="logo-img">
+            <nav>
+                <a href="#beranda">Beranda</a>
+                <a href="#produk">Produk</a>
+                <a href="#data-produk">Manajemen</a>
+                <a href="#tentang">Tentang</a>
+            </nav>
+        </div>
+    </header>
 
-<main>
-    <!-- Hero Section -->
-    <section id="beranda" class="hero">
-        <div class="hero-help">
-            <img src="Images/HELP.png" alt="Help" class="icon-help" onerror="this.style.display='none'">
-        </div>
-        <div class="hero-jam">
-            <div class="jam-box"><span id="jamDigital">00:00:00</span></div>
-        </div>
-        <div class="hero-content">
-            <a href="#data-produk" class="btn btn-primary">Halo Admin, ayo atur toko!</a>
-            <p class="hero-desc">Cakleker Store adalah toko merchandise Scuderia Ferrari terpercaya di Indonesia.</p>
-            <div class="hero-stats">
-                <div><div class="stat-number">5+</div><div class="stat-label">Tahun Berdiri</div></div>
-                <div><div class="stat-number">200</div><div class="stat-label">Tifosi Puas</div></div>
+    <main>
+
+        <!-- SECTION HERO -->
+        <section id="beranda" class="hero">
+            <div class="hero-help">
+                <img src="Images/HELP.png" alt="Help Center" class="icon-help">
             </div>
-            <div class="hero-promo">🏎️ Gratis ongkir di atas Rp500.000 &nbsp;•&nbsp; Garansi original 🏎️</div>
-        </div>
-    </section>
-
-    <!-- Produk Cards -->
-    <section id="produk" class="section-produk">
-        <div class="section-inner">
-            <p class="section-label">Koleksi Kami</p>
-            <h2 class="section-title">Semua Produk</h2>
-            <div class="produk-grid" id="produkGrid">Memuat data...</div>
-        </div>
-    </section>
-
-    <!-- Manajemen Inventaris -->
-    <section id="data-produk" class="section-data">
-        <div class="section-inner">
-            <p class="section-label">Sistem Manajemen</p>
-            <h2 class="section-title">Inventaris Barang</h2>
-
-            <!-- Statistik -->
-            <div class="stats-container">
-                <div class="stat-card"><div class="stat-card-value" id="totalItems">0</div><div class="stat-card-label">Total Item</div></div>
-                <div class="stat-card"><div class="stat-card-value" id="totalInventoryValue">Rp 0</div><div class="stat-card-label">Total Nilai Inventaris</div></div>
-                <div class="stat-card"><div class="stat-card-value" id="lowStockCount">0</div><div class="stat-card-label">Stok Menipis (&lt;5)</div></div>
-            </div>
-
-            <!-- Form Tambah/Edit -->
-            <div class="form-card">
-                <h3 class="form-title" id="formTitle">Tambah Barang Baru</h3>
-                <form id="inventoryForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Kode Barang *</label>
-                            <input type="text" id="kodeBarang" placeholder="Contoh: F001" required>
-                            <small class="error-message" id="errorKode"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Nama Produk *</label>
-                            <input type="text" id="namaProduk" placeholder="Nama produk" required>
-                            <small class="error-message" id="errorNama"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Kategori *</label>
-                            <select id="kategori" required>
-                                <option value="">Pilih Kategori</option>
-                                <option value="Race Wear">Race Wear</option>
-                                <option value="Daily Wear">Daily Wear</option>
-                                <option value="Diecast & Model">Diecast & Model</option>
-                                <option value="Aksesoris">Aksesoris</option>
-                                <option value="Limited Edition">Limited Edition</option>
-                            </select>
-                            <small class="error-message" id="errorKategori"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Stok *</label>
-                            <input type="number" id="stok" placeholder="Jumlah stok" min="0" required>
-                            <small class="error-message" id="errorStok"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Harga (Rp) *</label>
-                            <input type="number" id="harga" placeholder="Harga dalam Rupiah" min="1" required>
-                            <small class="error-message" id="errorHarga"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Tanggal Masuk *</label>
-                            <input type="date" id="tanggalMasuk" required>
-                            <small class="error-message" id="errorTanggal"></small>
-                        </div>
-                        <div class="form-group">
-                            <label>Foto Produk</label>
-                            <input type="file" id="fotoProduk" accept="image/*">
-                            <div id="previewFoto"><img id="previewImg" style="max-width:80px; display:none;"></div>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Barang</button>
-                        <button type="button" class="btn btn-secondary" id="cancelBtn">Batal</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Filter & Search -->
-            <div class="filter-bar">
-                <div class="filter-group-inline">
-                    <label>Filter Kategori:</label>
-                    <select id="filterCategory">
-                        <option value="all">Semua Kategori</option>
-                        <option value="Race Wear">Race Wear</option>
-                        <option value="Daily Wear">Daily Wear</option>
-                        <option value="Diecast & Model">Diecast & Model</option>
-                        <option value="Aksesoris">Aksesoris</option>
-                        <option value="Limited Edition">Limited Edition</option>
-                    </select>
-                </div>
-                <div class="search-group">
-                    <label>Cari (Nama/Kode):</label>
-                    <input type="text" id="searchInput" placeholder="Ketik nama atau kode barang..." class="search-input">
+            
+            <!-- JAM DIGITAL -->
+            <div class="hero-jam" id="heroJam">
+                <div class="jam-box">
+                    <span id="jamDigital">00:00:00</span>
                 </div>
             </div>
 
-            <!-- Tabel Data -->
-            <div class="tabel-wrapper">
-                <table class="tabel-produk" id="inventoryTable">
-                    <thead>
-                        <tr><th>Foto</th><th>Kode</th><th>Nama Produk</th><th>Kategori</th><th>Stok</th><th>Harga</th><th>Tanggal Masuk</th><th>Aksi</th></tr>
-                    </thead>
-                    <tbody id="tableBody"></tbody>
-                </table>
+            <div class="hero-content">
+                <div>
+                    <a href="#data-produk" class="btn btn-primary">Halo Admin, ayo atur toko!</a>
+                </div>
+                <div>
+                    <p class="hero-desc">
+                        Cakleker Store adalah toko merchandise Scuderia Ferrari 
+                        terpercaya di Indonesia. Temukan koleksi eksklusif kaos, topi, 
+                        diecast, dan aksesoris untuk para Tifosi sejati.
+                    </p>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Tahun Berdiri</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">200</div>
+                        <div class="stat-label">Tifosi Puas</div>
+                    </div>
+                </div>
+                <div class="hero-promo">
+                    🏎️ &nbsp; Gratis ongkir untuk pembelian di atas Rp500.000 &nbsp; • &nbsp; Garansi original merchandise &nbsp; 🏎️
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PRODUK (CARD GRID) - DINAMIS -->
+        <section id="produk" class="section-produk">
+            <div class="section-inner">
+                <p class="section-label">Koleksi Kami</p>
+                <h2 class="section-title">Semua Produk</h2>
+                <div class="produk-grid" id="produkGrid">
+                    <!-- Card akan diisi JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION MANAJEMEN INVENTARIS -->
+        <section id="data-produk" class="section-data">
+            <div class="section-inner">
+                <p class="section-label">Sistem Manajemen</p>
+                <h2 class="section-title">Inventaris Barang</h2>
+
+                <!-- STATISTIK CARD -->
+                <div class="stats-container" id="statsContainer">
+                    <div class="stat-card">
+                        <div class="stat-card-value" id="totalItems">0</div>
+                        <div class="stat-card-label">Total Item</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-value" id="totalInventoryValue">Rp 0</div>
+                        <div class="stat-card-label">Total Nilai Inventaris</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-value" id="lowStockCount">0</div>
+                        <div class="stat-card-label">Stok Menipis (&lt; 5)</div>
+                    </div>
+                </div>
+
+                <!-- FORM TAMBAH/EDIT BARANG (dengan upload foto) -->
+                <div class="form-card">
+                    <h3 class="form-title" id="formTitle">Tambah Barang Baru</h3>
+                    <form id="inventoryForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Kode Barang *</label>
+                                <input type="text" id="kodeBarang" placeholder="Contoh: F001" required>
+                                <small class="error-message" id="errorKode"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Produk *</label>
+                                <input type="text" id="namaProduk" placeholder="Nama produk" required>
+                                <small class="error-message" id="errorNama"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Kategori *</label>
+                                <select id="kategori" required>
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Race Wear">Race Wear</option>
+                                    <option value="Daily Wear">Daily Wear</option>
+                                    <option value="Diecast & Model">Diecast & Model</option>
+                                    <option value="Aksesoris">Aksesoris</option>
+                                    <option value="Limited Edition">Limited Edition</option>
+                                </select>
+                                <small class="error-message" id="errorKategori"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Stok *</label>
+                                <input type="number" id="stok" placeholder="Jumlah stok" min="0" required>
+                                <small class="error-message" id="errorStok"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Harga (Rp) *</label>
+                                <input type="number" id="harga" placeholder="Harga dalam Rupiah" min="1" required>
+                                <small class="error-message" id="errorHarga"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal Masuk *</label>
+                                <input type="date" id="tanggalMasuk" required>
+                                <small class="error-message" id="errorTanggal"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Foto Produk</label>
+                                <input type="file" id="fotoProduk" accept="image/*">
+                                <small class="error-message" id="errorFoto"></small>
+                                <div id="previewFoto" style="margin-top: 8px;">
+                                    <img id="previewImg" src="" alt="Preview" style="max-width: 80px; max-height: 80px; display: none; border-radius: 4px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Simpan Barang</button>
+                            <button type="button" class="btn btn-secondary" id="cancelBtn">Batal</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FILTER & PENCARIAN -->
+                <div class="filter-bar">
+                    <div class="filter-group-inline">
+                        <label>Filter Kategori:</label>
+                        <select id="filterCategory">
+                            <option value="all">Semua Kategori</option>
+                            <option value="Race Wear">Race Wear</option>
+                            <option value="Daily Wear">Daily Wear</option>
+                            <option value="Diecast & Model">Diecast & Model</option>
+                            <option value="Aksesoris">Aksesoris</option>
+                            <option value="Limited Edition">Limited Edition</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label>Cari (Nama/Kode):</label>
+                        <input type="text" id="searchInput" placeholder="Ketik nama atau kode barang..." class="search-input">
+                    </div>
+                </div>
+
+                <!-- TABEL DATA INVENTARIS (dengan kolom foto) -->
+                <div class="tabel-wrapper">
+                    <table class="tabel-produk" id="inventoryTable">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                                <th>Kode</th>
+                                <th>Nama Produk</th>
+                                <th>Kategori</th>
+                                <th>Stok</th>
+                                <th>Harga</th>
+                                <th>Tanggal Masuk</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Data akan di-render -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="tentang">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-wrap">
+                        <div class="logo">
+                            <div>
+                                <img src="Images/CAKLEKER-STORE.png" alt="CAKLEKER STORE" class="logo-img">
+                            </div>
+                            <div class="logo-sub">
+                                Scuderia Ferrari Merchandise Store #No. 1 di Indonesia
+                            </div>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Toko merchandise Scuderia Ferrari terpercaya di Indonesia. Kami adalah tifosi sepertimu — bukan sekadar toko, tapi komunitas pecinta balap.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#produk">Kaos & Jaket</a></li>
+                        <li><a href="#produk">Topi & Headwear</a></li>
+                        <li><a href="#produk">Race Suit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Cara Pemesanan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="#">Kebijakan Retur</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Cakleker Store</p>
+                <p>Berdiri untuk Tifosi setia di Nusantara. Forza Ferrari.</p>
             </div>
         </div>
-    </section>
-</main>
+    </footer>
 
-<footer id="tentang">
-    <div class="footer-inner">
-        <p>© 2026 Cakleker Store — Forza Ferrari.</p>
-    </div>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
