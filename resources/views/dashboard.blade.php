@@ -1,1 +1,10 @@
-echo "<h1>Dashboard Cakleker Store</h1>" > resources/views/dashboard.blade.php
+@extends('layouts.app')
+
+@section('title', 'Dashboard')
+
+@section('content')
+<div class="hero-content">
+    <h1>Selamat Datang di Cakleker Store</h1>
+    <a href="{{ route('tentang') }}" class="btn">Pelajari Lebih Lanjut</a>
+</div>
+@endsection

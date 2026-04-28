@@ -1,1 +1,9 @@
-echo "<h1>Tentang Kami</h1>" > resources/views/tentang.blade.php
+@extends('layouts.app')
+
+@section('title', 'Tentang Kami')
+
+@section('content')
+<div class="hero-content">
+    <h1>Tentang Cakleker Store</h1>
+</div>
+@endsection
