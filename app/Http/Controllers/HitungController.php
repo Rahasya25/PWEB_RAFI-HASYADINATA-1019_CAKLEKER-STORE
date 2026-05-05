@@ -13,6 +13,7 @@ class HitungController extends Controller
             $a = $request->input('a');
             $b = $request->input('b');
             $hasil = $a + $b;
+            session()->flash('success', "Perhitungan berhasil: $a + $b = $hasil");
         }
         return view('hitung', compact('hasil'));
     }
