@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'admin' => CekAdmin::class,
+            'cek.admin' => \App\Http\Middleware\CekAdmin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
