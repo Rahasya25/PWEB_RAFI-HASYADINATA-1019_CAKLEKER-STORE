@@ -1,11 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Tentang Kami')
+@section('title', 'Tentang')
 @section('content')
-<div class="hero-content">
+<div class="hero-content" style="margin-top: 80px;">
     <h1>Tentang Cakleker Store</h1>
-    <p style="margin: 20px auto; max-width: 600px;">
-        Cakleker Store adalah toko merchandise resmi Scuderia Ferrari yang berdiri sejak 2020.
-        Kami berkomitmen menyediakan produk original dengan kualitas terbaik untuk para Tifosi di Indonesia.
-    </p>
+    <p>Toko merchandise resmi Scuderia Ferrari di Indonesia. Melayani Tifosi sejati dengan produk original.</p>
 </div>
 @endsection

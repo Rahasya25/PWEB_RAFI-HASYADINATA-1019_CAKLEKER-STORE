@@ -2,9 +2,14 @@
     <div class="nav-header">
         <img src="{{ asset('Images/CAKLEKER-STORE.png') }}" alt="Cakleker Store" class="logo-img">
         <nav>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
             <a href="{{ route('dashboard') }}">Dashboard</a>
             <a href="{{ route('produk.index') }}">Produk</a>
-            <a href="{{ route('manajemen') }}">Manajemen</a>
+            @if(auth()->user()->role == 'admin')
+                <a href="{{ route('manajemen') }}">Manajemen</a>
+            @else
+                <a href="{{ route('pembelian') }}">Pembelian</a>
+            @endif
             <a href="{{ route('tentang') }}">Tentang</a>
             <span class="user-name">{{ auth()->user()->name }}</span>
             <form method="POST" action="{{ route('logout') }}" style="display: inline;">
